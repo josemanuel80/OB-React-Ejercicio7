@@ -37,12 +37,11 @@ function App() {
     setlike(false);
   };
 
-  console.log(jokes);
   return (
     <div className="App">
       <p>{data.value}</p>
       <Button variant="contained" onClick={handleClick}>
-        Joke
+        New joke
       </Button>
       <div className="thumbsWrapper">
         <div className="thumbUpWrapper">
@@ -55,7 +54,7 @@ function App() {
         </div>
       </div>
       <p>
-        Te han gustado:
+        You liked:
         {
           jokes.filter((e) => {
             return e.like;
@@ -63,7 +62,7 @@ function App() {
         }
       </p>
       <p>
-        Te han disgustado:
+        You disliked:
         {
           jokes.filter((e) => {
             return e.dislike;

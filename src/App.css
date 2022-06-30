@@ -1,0 +1,29 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.thumbsWrapper {
+  display: flex;
+}
+
+.thumbUpWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thumbsDownWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thumbUpIcon {
+  cursor: pointer;
+}
+.thumbDownIcon {
+  cursor: pointer;
+}

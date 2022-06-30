@@ -22,9 +22,21 @@ function App() {
   }, []);
 
   const handleClick = () => {
-    setJokes([...jokes, { id: data.id, like: like, dislike: dislike }]);
+    setJokes([...jokes, new joke(like, dislike)]);
+    setlike(false);
+    setDislike(false);
     newJoke();
   };
+
+  const handleLike = () => {
+    setlike(!like);
+    setDislike(false);
+  };
+  const handleDislike = () => {
+    setDislike(!dislike);
+    setlike(false);
+  };
+
   console.log(jokes);
   return (
     <div className="App">
@@ -32,8 +44,32 @@ function App() {
       <Button variant="contained" onClick={handleClick}>
         Joke
       </Button>
-      <ThumbUpIcon />
-      <ThumbDownIcon />
+      <div className="thumbsWrapper">
+        <div className="thumbUpWrapper">
+          <ThumbUpIcon className="thumbUpIcon" onClick={handleLike} />
+          <p>{like ? 1 : 0}</p>
+        </div>
+        <div className="thumbsDownWrapper">
+          <ThumbDownIcon className="thumbDownIcon" onClick={handleDislike} />
+          <p>{dislike ? 1 : 0}</p>
+        </div>
+      </div>
+      <p>
+        Te han gustado:
+        {
+          jokes.filter((e) => {
+            return e.like;
+          }).length
+        }
+      </p>
+      <p>
+        Te han disgustado:
+        {
+          jokes.filter((e) => {
+            return e.dislike;
+          }).length
+        }
+      </p>
     </div>
   );
 }
